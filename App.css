@@ -1,0 +1,57 @@
+.navbar{
+  margin-left: 8px;
+  /* margin-top: 2px; */
+  color: aliceblue;
+  position: sticky;
+  z-index: 100; /* stays above other elements */
+  top: 0;
+  padding-bottom: 0 !important;
+  padding-top: 3px !important;
+}
+
+.about,#home{
+  color: aliceblue;
+}
+
+.skills{
+  color: aliceblue;
+}
+
+.academics{
+  color: aliceblue;
+}
+
+.certifications{
+  color: aliceblue;
+}
+
+.projects{
+  color: aliceblue;
+}
+
+footer{
+  background-color: black;
+}
+
+.slide {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.slide.active {
+  opacity: 1;
+}
+
+@keyframes checkbox-pulse {
+  0% {
+    transform: scale(0.8) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}

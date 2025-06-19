@@ -1,0 +1,19 @@
+*{
+  background-color: rgb(41, 23, 98);
+}
+
+#footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+}
+
+#footer * {
+  background-color: transparent !important; /* override the global */
+  color: white;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
