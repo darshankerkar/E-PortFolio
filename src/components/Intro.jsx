@@ -24,7 +24,7 @@ function Tabs() {
         </div>
         <div class="hero-image" style={{paddingLeft:"170px"}}>
           <img
-            src="/E-PortFolio/assets/In_Suit.jpg"
+            src="/E-PortFolio/In_Suit.jpg"
             alt="In Suit"
           />
         </div>
