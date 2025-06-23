@@ -1,0 +1,143 @@
+.vertical-stepper {
+  position: relative;
+  width: 180px;
+  height: 500px;
+  /* Remove or comment out the background property */
+  /* background: #0a0a23; */
+  margin: 0 auto;
+  border-radius: 10px;
+  margin: 0px;
+  display: flex;
+}
+
+.stepper-line {
+  position: absolute;
+  left: 10%;
+  top: 0;
+  width: 2px;
+  height: 90%;
+  background: #444466;
+  transform: translateX(-50%);
+}
+
+.stepper-step {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.stepper-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 3px solid;
+  border-radius: 50%;
+  background: #0a0a23;
+  font-size: 1.3rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.stepper-bar {
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 3px;
+  background: #fff;
+  z-index: 1;
+}
+
+.timeline {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 1px;
+  padding: 0px;
+  position: relative;
+}
+
+.timeline-content {
+  flex: 1;
+  opacity: 0;
+  min-width: 770px;
+  max-width: 800px;
+  padding: 0 40px;
+  color: #fff;
+  transition: opacity 0.3s;
+}
+
+.timeline-content.show {
+  opacity: 1;
+}
+
+.timeline-center {
+  position: relative;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border: 3px solid;
+  border-radius: 50%;
+  background: #0a0a23;
+  font-size: 1.3rem;
+  font-weight: bold;
+  z-index: 2;
+}
+
+.timeline-bar {
+  position: absolute;
+  top: 50%;
+  height: 3px;
+  z-index: 1;
+}
+
+.timeline-row:nth-child(odd) .timeline-content:first-child {
+  opacity: 1;
+  text-align: right;
+}
+.timeline-row:nth-child(even) .timeline-content:last-child {
+  opacity: 1;
+  text-align: left;
+}
+
+.timeline-row:nth-child(odd) .timeline-content:last-child,
+.timeline-row:nth-child(even) .timeline-content:first-child {
+  opacity: 0;
+}
+
+@media (max-width: 900px) {
+  .timeline-row {
+    flex-direction: column;
+    margin: 30px 0;
+  }
+  .timeline-content {
+    max-width: 100%;
+    text-align: center !important;
+    padding: 0 10px;
+    opacity: 1 !important;
+  }
+  .timeline-center {
+    margin: 10px 0;
+  }
+}
