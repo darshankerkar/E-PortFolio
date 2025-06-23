@@ -1,4 +1,3 @@
-
 function Tabs() {
     
   return (
@@ -25,9 +24,8 @@ function Tabs() {
         </div>
         <div class="hero-image" style={{paddingLeft:"170px"}}>
           <img
-            src="In_Suit.jpg"
-            alt="Darshan"
-            style={{ height: "722px", width: "499px"}}
+            src="/E-PortFolio/assets/In_Suit.jpg"
+            alt="In Suit"
           />
         </div>
       </div>

@@ -4,8 +4,8 @@ function Certifications() {
       <div data-aos="fade-right" style={{ position: "relative" }}>
         {/* Simulated checkbox tick effect */}
         <img
-          src="HackerRank.png"
-          alt="HackerRank Logo"
+          src="/E-PortFolio/assets/HackerRank.png"
+          alt="HackerRank"
           style={{
             width: "650px",
             height: "724px",
