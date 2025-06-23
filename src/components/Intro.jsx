@@ -26,6 +26,7 @@ function Tabs() {
           <img
             src="/E-PortFolio/In_Suit.jpg"
             alt="In Suit"
+            style={{width:"600px",height:"700px"}}
           />
         </div>
       </div>
