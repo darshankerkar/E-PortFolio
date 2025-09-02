@@ -39,7 +39,7 @@ function Navbars(){
           <Nav.Link
             eventKey="disabled"
             disabled
-            style={{ color: "#ccc", paddingLeft: "910px" }}
+            style={{ color: "#ccc", paddingLeft: "911px" }}
           >
             Contact Me
           </Nav.Link>
