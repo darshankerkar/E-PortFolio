@@ -154,3 +154,49 @@ footer{
     text-align: center !important;
   }
 }
+
+@media (max-width: 400px) {
+  .navbar .nav {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100%;
+    
+  }
+  .navbar .nav-link {
+    font-size: 1rem !important;
+    padding: 10px 0 !important;
+    width: 100%;
+    text-align: left;
+    
+  }
+  .contact-link {
+    align-self: flex-end !important;
+    margin-top: 10px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    
+  }
+  .navbar .navbar-toggler {
+    display: block !important;
+    margin-left: auto;
+    margin-right: 10px;
+    
+  }
+  .navbar .navbar-collapse {
+    background: #2a1866;
+    width: 100vw;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 999;
+    border-radius: 0 0 10px 10px;
+    
+  }
+  .navbar-toggler {
+    border-color: #fff !important;
+    
+  }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+}
