@@ -49,13 +49,11 @@ const socials = [
     label: 'LeetCode',
     href: 'https://leetcode.com/darshankerkar/',
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M14.8 4.9 8.2 11.5l6.6 6.6" stroke="#ffffff" strokeWidth="3.1" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="m15.3 5.3 3.1 3.1" stroke="#ffffff" strokeWidth="3.1" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M9.7 11.9h8.4" stroke="#ffffff" strokeWidth="3.1" strokeLinecap="round" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.039-1.901l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.498-1.366-.037-1.901-.535-.535-1.387-.552-1.902-.038l-10.1 10.101c-.981.982-1.494 2.337-1.494 3.835 0 1.498.513 2.895 1.494 3.875l4.347 4.361c.981.979 2.337 1.452 3.834 1.452s2.853-.473 3.833-1.452l2.697-2.606c.514-.515.498-1.366-.037-1.901-.536-.535-1.387-.552-1.902-.038zm2.667-8.156c0-.825-.675-1.5-1.5-1.5h-10.16c-.825 0-1.5.675-1.5 1.5s.675 1.5 1.5 1.5h10.16c.825 0 1.5-.675 1.5-1.5z"/>
       </svg>
     ),
-    color: '#ffffff',
+    color: '#ffa116',
   },
   {
     label: 'X',
@@ -93,11 +91,22 @@ export default function Contact() {
     if (Object.keys(e).length) { setErrors(e); return; }
     setErrors({});
     setLoading(true);
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\nMessage:\n${form.message}`
+    );
+    const mailtoUrl = `mailto:darshankerkar09@gmail.com?subject=${subject}&body=${body}`;
+
+    // Open mail client
+    window.location.href = mailtoUrl;
+
+    // Small delay then show success
     setTimeout(() => {
       setLoading(false);
       setSent(true);
       setForm({ name: '', email: '', message: '' });
-    }, 1400);
+    }, 800);
   };
 
   const inputStyle = (field) => ({
@@ -118,10 +127,30 @@ export default function Contact() {
     <section id="contact" ref={ref}>
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         <motion.div variants={fadeUp} custom={0} initial="hidden" animate={inView ? 'visible' : 'hidden'} style={{ marginBottom: '64px', textAlign: 'center' }}>
-          <span className="section-label" style={{ justifyContent: 'center' }}>Contact</span>
-          <h2 className="section-title" style={{ textAlign: 'center' }}>Let's <span className="gradient-text">Work Together</span></h2>
-          <div className="divider" style={{ margin: '0 auto 24px' }} />
-          <p className="section-subtitle" style={{ textAlign: 'center', margin: '0 auto' }}>
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.73rem',
+            color: '#4a90e2',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            marginBottom: '14px',
+          }}>06 · Contact</p>
+          <h2 style={{
+            fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
+            fontWeight: 800,
+            color: '#f1f5f9',
+            letterSpacing: '-0.03em',
+            lineHeight: 1.08,
+            margin: '0 0 16px',
+          }}>
+            Let's{' '}
+            <span style={{
+              background: 'linear-gradient(120deg, #93c5fd 0%, #a78bfa 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>Work Together</span>
+          </h2>
+          <p style={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.7, maxWidth: '480px', margin: '0 auto' }}>
             Open to internships, collaborations, and exciting opportunities. Drop a message!
           </p>
         </motion.div>

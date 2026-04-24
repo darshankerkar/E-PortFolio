@@ -3,16 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const links = [
-  { label: 'About',        href: '#about' },
-  { label: 'Skills',       href: '#skills' },
-  { label: 'Experience',   href: '#experience' },
-  { label: 'Projects',     href: '#projects' },
-  { label: 'Contact',      href: '#contact' },
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Contact', href: '#contact' },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]     = useState(false);
-  const [menuOpen, setMenuOpen]     = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('');
 
   useEffect(() => {
@@ -25,9 +25,16 @@ export default function Navbar() {
     const sections = document.querySelectorAll('section[id]');
     const obs = new IntersectionObserver(
       (entries) => {
-        entries.forEach(e => { if (e.isIntersecting) setActiveLink('#' + e.target.id); });
+        // Find the overlapping sections and pick the first one that intersects the mid line
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            setActiveLink('#' + e.target.id);
+          }
+        });
       },
-      { rootMargin: '-40% 0px -55% 0px' }
+      // Using a very narrow band precisely at the center-top of the screen.
+      // This prevents the next section (like Experience) from overriding Skills.
+      { rootMargin: '-20% 0px -79% 0px' }
     );
     sections.forEach(s => obs.observe(s));
     return () => obs.disconnect();
@@ -64,6 +71,7 @@ export default function Navbar() {
               <motion.a
                 key={link.href}
                 href={link.href}
+                onClick={() => setActiveLink(link.href)}
                 whileHover={{ opacity: 0.7 }}
                 style={{
                   textDecoration: 'none',

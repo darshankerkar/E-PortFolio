@@ -74,9 +74,29 @@ export default function Achievements() {
     <section id="achievements" ref={ref}>
       <div className="container">
         <motion.div variants={fadeUp} custom={0} initial="hidden" animate={inView ? 'visible' : 'hidden'} style={{ marginBottom: '64px' }}>
-          <span className="section-label">Achievements</span>
-          <h2 className="section-title">Wins & <span className="gradient-text">Recognition</span></h2>
-          <div className="divider" />
+          <p style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.73rem',
+            color: '#4a90e2',
+            letterSpacing: '0.16em',
+            textTransform: 'uppercase',
+            marginBottom: '14px',
+          }}>05 · Achievements</p>
+          <h2 style={{
+            fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
+            fontWeight: 800,
+            color: '#f1f5f9',
+            letterSpacing: '-0.03em',
+            lineHeight: 1.08,
+            margin: 0,
+          }}>
+            Wins &{' '}
+            <span style={{
+              background: 'linear-gradient(120deg, #93c5fd 0%, #a78bfa 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}>Recognition</span>
+          </h2>
         </motion.div>
 
         {/* Achievements Grid */}

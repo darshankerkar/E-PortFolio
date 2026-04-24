@@ -75,6 +75,7 @@ main {
 section {
   padding: 86px 0;
   position: relative;
+  scroll-margin-top: 70px;
 }
 
 section:nth-child(even) {

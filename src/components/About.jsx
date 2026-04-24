@@ -1,132 +1,212 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MapPin, GraduationCap, Heart } from 'lucide-react';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 0) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.6, ease: 'easeOut' } }),
+  hidden: { opacity: 0, y: 30 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.13, duration: 0.6, ease: 'easeOut' },
+  }),
 };
 
-const highlights = [
-  { icon: <MapPin size={16} />, label: 'Location',    value: 'Mumbai, India' },
-  { icon: <GraduationCap size={16} />, label: 'Education', value: 'B.E. IT — VIT Mumbai' },
-  {
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 2v3" />
-        <path d="M12 19v3" />
-        <path d="M2 12h3" />
-        <path d="M19 12h3" />
-      </svg>
-    ),
-    label: 'Focus',
-    value: 'AI & Backend Systems',
-  },
-  { icon: <Heart size={16} />, label: 'Passion',    value: 'Open-Source & Dev Communities' },
-];
-
 export default function About() {
-  const ref    = useRef(null);
+  const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
 
   return (
-    <section id="about" ref={ref}>
+    <section id="about" ref={ref} style={{ paddingBottom: '160px' }}>
       <div className="container">
-        <motion.div
-          variants={fadeUp} initial="hidden" animate={inView ? 'visible' : 'hidden'}
-          style={{ marginBottom: '64px' }}
-        >
-          <span className="section-label">About Me</span>
-          <h2 className="section-title">Crafting Digital<br /><span className="gradient-text">Experiences</span></h2>
-          <div className="divider" />
-        </motion.div>
 
+        {/* Section label */}
+        <motion.p
+          variants={fadeUp} custom={0} initial="hidden" animate={inView ? 'visible' : 'hidden'}
+          style={{
+            fontFamily: 'var(--font-mono)', fontSize: '0.73rem', color: '#4a90e2',
+            letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: '48px',
+          }}
+        >
+          01 · About Me
+        </motion.p>
+
+        {/* Two-column layout */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-          gap: '40px', alignItems: 'start',
+          gridTemplateColumns: 'minmax(240px, 340px) 1fr',
+          gap: '64px',
+          alignItems: 'center',
         }}>
-          {/* Left — Story */}
-          <div>
-            {[
-              `I'm Darshan Kerkar, a full-stack developer and student at Vidyalankar Institute of Technology, Mumbai. I specialize in building scalable web applications and developer-focused systems, with a strong interest in AI-powered platforms and secure backend architectures.`,
-              `My journey began with curiosity about how systems work internally — that led me deep into backend engineering, REST APIs, and eventually full-stack development. I actively contribute to open-source and have contributed to Wagtail, a widely used Django CMS and a Google Summer of Code organization.`,
-              `I'm currently building Recrify, a recruitment platform automating hiring workflows using intelligent systems. I also contribute to tech communities through GDG and ACM, where I help organize hackathons and developer initiatives.`,
-            ].map((para, i) => (
-              <motion.p
-                key={i}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                animate={inView ? 'visible' : 'hidden'}
-                style={{ color: '#94a3b8', lineHeight: 1.8, marginBottom: '20px', fontSize: '0.97rem' }}
-              >
-                {para}
-              </motion.p>
-            ))}
-          </div>
 
-          {/* Right — Card grid */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {highlights.map((h, i) => (
-              <motion.div
-                key={h.label}
-                custom={i + 3}
-                variants={fadeUp}
-                initial="hidden"
-                animate={inView ? 'visible' : 'hidden'}
-                whileHover={{ x: 6 }}
+          {/* ── LEFT: Photo ── */}
+          <motion.div
+            variants={fadeUp} custom={1} initial="hidden" animate={inView ? 'visible' : 'hidden'}
+            style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            {/* Decorative glow behind photo */}
+            <div style={{
+              position: 'absolute',
+              inset: '-2px',
+              borderRadius: '20px',
+              background: 'linear-gradient(145deg, rgba(108,99,255,0.5) 0%, rgba(147,197,253,0.3) 50%, rgba(167,139,250,0.5) 100%)',
+              filter: 'blur(18px)',
+              opacity: 0.6,
+              zIndex: 0,
+            }} />
+
+            {/* Photo card — same feel as project cards */}
+            <div style={{
+              position: 'relative',
+              borderRadius: '18px',
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.12)',
+              boxShadow:
+                '0 0 0 1px rgba(108,99,255,0.25), 0 24px 60px rgba(0,0,0,0.6), 0 8px 24px rgba(108,99,255,0.18)',
+              zIndex: 1,
+              background: '#0c1020',
+            }}>
+              <img
+                src="/In suit-EDIT.jpg"
+                alt="Darshan Kerkar"
                 style={{
-                  display: 'flex', alignItems: 'center', gap: '16px',
-                  background: 'var(--bg-card)',
-                  border: '1px solid var(--border)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '16px 20px',
-                  transition: 'border-color 0.3s',
-                  cursor: 'default',
+                  width: '100%',
+                  display: 'block',
+                  objectFit: 'cover',
+                  objectPosition: '50% top',
+                  aspectRatio: '3 / 4',
+                  filter: 'brightness(0.92) contrast(1.04)',
+                  transform: 'scale(1.12)',
+                  transformOrigin: 'center top',
                 }}
-                onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(108,99,255,0.4)'}
-                onMouseLeave={e => e.currentTarget.style.borderColor = 'rgba(108,99,255,0.15)'}
-              >
-                <div style={{
-                  width: 40, height: 40, borderRadius: '10px',
-                  background: 'rgba(108,99,255,0.1)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#6c63ff', flexShrink: 0,
-                }}>
-                  {h.icon}
-                </div>
-                <div>
-                  <div style={{ fontSize: '0.72rem', color: '#475569', fontFamily: 'var(--font-mono)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '2px' }}>{h.label}</div>
-                  <div style={{ fontSize: '0.95rem', fontWeight: 600, color: '#e2e8f0' }}>{h.value}</div>
-                </div>
-              </motion.div>
-            ))}
+              />
 
-            {/* Quick fact */}
+              {/* Subtle gradient overlay at bottom */}
+              <div style={{
+                position: 'absolute',
+                bottom: 0, left: 0, right: 0,
+                height: '80px',
+                background: 'linear-gradient(to top, rgba(6,8,20,0.7) 0%, transparent 100%)',
+              }} />
+            </div>
+          </motion.div>
+
+          {/* ── RIGHT: Text ── */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+
+            {/* Welcome heading */}
+            <motion.div variants={fadeUp} custom={2} initial="hidden" animate={inView ? 'visible' : 'hidden'}>
+              <h2 style={{
+                fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
+                fontWeight: 800,
+                color: '#f1f5f9',
+                letterSpacing: '-0.03em',
+                lineHeight: 1.1,
+                margin: '0 0 20px',
+              }}>
+                Welcome to my{' '}
+                <span style={{
+                  background: 'linear-gradient(120deg, #93c5fd 0%, #a78bfa 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}>Portfolio</span>
+              </h2>
+
+              <p style={{
+                fontSize: '1.05rem',
+                color: '#94a3b8',
+                lineHeight: 1.85,
+                margin: 0,
+                maxWidth: '520px',
+              }}>
+                I'm <strong style={{ color: '#e2e8f0', fontWeight: 600 }}>Darshan Kerkar</strong>, a full-stack developer
+                and B.E. IT student at VIT Mumbai, focused on building systems that are fast, purposeful, and reliable.
+                From AI-powered hiring platforms to open-source CMS contributions, I care about shipping things that
+                actually make a difference.
+              </p>
+            </motion.div>
+
+            {/* Brief bullets — clean, no fluff */}
+            <motion.ul
+              variants={fadeUp} custom={3} initial="hidden" animate={inView ? 'visible' : 'hidden'}
+              style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}
+            >
+              {[
+                {
+                  label: 'Founder',
+                  value: <><a href="https://github.com/darshankerkar/Recrify" target="_blank" rel="noopener noreferrer" style={{ color: '#93c5fd', textDecoration: 'none', fontWeight: 500 }}>RECRIFY</a>, an AI-driven recruitment platform</>,
+                },
+                {
+                  label: 'Open Source',
+                  value: <>Contributor to <a href="https://github.com/wagtail/wagtail" target="_blank" rel="noopener noreferrer" style={{ color: '#93c5fd', textDecoration: 'none', fontWeight: 500 }}>Wagtail</a>, a Google Summer of Code org</>,
+                },
+                {
+                  label: 'Community',
+                  value: <>Technical Team Member at <a href="https://github.com/GDGVITM/" target="_blank" rel="noopener noreferrer" style={{ color: '#93c5fd', textDecoration: 'none', fontWeight: 500 }}>GDG VIT Mumbai</a>, contributing to dev events and workshops</>,
+                },
+              ].map((item, i) => (
+                <li key={i} style={{ display: 'flex', gap: '10px', alignItems: 'baseline' }}>
+                  <span style={{
+                    flexShrink: 0, width: '6px', height: '6px', borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #6c63ff, #93c5fd)',
+                    marginTop: '7px',
+                  }} />
+                  <span style={{ fontSize: '0.9rem', color: '#64748b' }}>
+                    <strong style={{ color: '#94a3b8', fontWeight: 500 }}>{item.label}:</strong>
+                    {' '}{item.value}
+                  </span>
+                </li>
+              ))}
+            </motion.ul>
+
+            {/* goal.txt block */}
             <motion.div
-              custom={7}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? 'visible' : 'hidden'}
+              variants={fadeUp} custom={4} initial="hidden" animate={inView ? 'visible' : 'hidden'}
               style={{
-                background: 'linear-gradient(135deg, rgba(108,99,255,0.12), rgba(0,212,255,0.08))',
+                background: 'var(--bg-card)',
                 border: '1px solid rgba(108,99,255,0.2)',
-                borderRadius: 'var(--radius-md)',
-                padding: '20px',
-                marginTop: '4px',
+                borderLeft: '3px solid #6c63ff',
+                borderRadius: '12px',
+                padding: '20px 24px',
               }}
             >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: '#00d4ff', marginBottom: '8px' }}>// goal.txt</div>
-              <p style={{ color: '#e2e8f0', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                "Become a developer who builds <strong style={{ color: '#6c63ff' }}>impactful systems</strong> while contributing to open-source and developer communities."
+              <div style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.72rem',
+                color: '#4a90e2',
+                letterSpacing: '0.1em',
+                marginBottom: '10px',
+                textTransform: 'uppercase',
+              }}>
+                // goal.txt
+              </div>
+              <p style={{
+                color: '#cbd5e1',
+                fontSize: '0.93rem',
+                lineHeight: 1.7,
+                margin: 0,
+                fontStyle: 'italic',
+              }}>
+                "To engineer products that solve real problems, write clean code,
+                contibute to open source, and leave the codebase better than I found it."
               </p>
             </motion.div>
           </div>
+
         </div>
       </div>
+
+      {/* Responsive: stack on small screens */}
+      <style>{`
+        @media (max-width: 720px) {
+          #about .container > div:last-child {
+            grid-template-columns: 1fr !important;
+          }
+          #about .container > div:last-child > div:first-child {
+            max-width: 280px;
+            margin: 0 auto;
+          }
+        }
+      `}</style>
     </section>
   );
 }
