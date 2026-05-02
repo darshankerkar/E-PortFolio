@@ -137,7 +137,7 @@ export default function About() {
                 },
                 {
                   label: 'Open Source',
-                  value: <>Contributor to <a href="https://github.com/wagtail/wagtail" target="_blank" rel="noopener noreferrer" style={{ color: '#93c5fd', textDecoration: 'none', fontWeight: 500 }}>Wagtail</a>, a Google Summer of Code org</>,
+                  value: <>Contributor to <a href="https://github.com/wagtail/wagtail/pull/14062" target="_blank" rel="noopener noreferrer" style={{ color: '#93c5fd', textDecoration: 'none', fontWeight: 500 }}>Wagtail</a>, a Google Summer of Code org</>,
                 },
                 {
                   label: 'Community',

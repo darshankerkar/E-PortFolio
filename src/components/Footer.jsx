@@ -18,14 +18,10 @@ export default function Footer() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <div style={{
               width: 32, height: 32, borderRadius: '8px',
-              background: 'linear-gradient(135deg, #6c63ff, #00d4ff)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
+              overflow: 'hidden'
             }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="m16 18 6-6-6-6" />
-                <path d="m8 6-6 6 6 6" />
-                <path d="m14.5 4-5 16" />
-              </svg>
+              <img src="/e-portfolio logo.png" alt="Darshan Logo" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <span style={{ fontWeight: 800, color: '#64748b', fontSize: '0.95rem' }}>
               Darshan<span style={{ color: '#6c63ff' }}>.</span>

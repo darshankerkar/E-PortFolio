@@ -134,7 +134,7 @@ export default function Contact() {
             letterSpacing: '0.16em',
             textTransform: 'uppercase',
             marginBottom: '14px',
-          }}>06 · Contact</p>
+          }}>05 · Contact</p>
           <h2 style={{
             fontSize: 'clamp(2.2rem, 5vw, 3.4rem)',
             fontWeight: 800,

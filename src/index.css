@@ -59,6 +59,30 @@ body::before {
   color: #fff;
 }
 
+/* ===== EXPERIENCE GRID ===== */
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .experience-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+.experience-card-wrapper {
+  transition: margin-top 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .experience-card-wrapper {
+    margin-top: 0 !important;
+  }
+}
+
 /* ===== LAYOUT ===== */
 .container {
   width: 100%;

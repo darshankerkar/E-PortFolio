@@ -113,15 +113,11 @@ export default function Experience() {
         </motion.div>
 
         {/* ── 3-column staggered grid ── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '24px',
-          alignItems: 'start',
-        }}>
+        <div className="experience-grid">
           {experiences.map((exp, i) => (
             <motion.div
               key={exp.id}
+              className="experience-card-wrapper"
               custom={i}
               variants={cardIn}
               initial="hidden"
